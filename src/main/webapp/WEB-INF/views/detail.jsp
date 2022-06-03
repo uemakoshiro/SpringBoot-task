@@ -12,10 +12,10 @@
 <body>
 
   <div class="header">
-    <h1 class="site_logo"><a href="MenuServlet">商品管理システム</a></h1>
+    <h1 class="site_logo"><a href="back">商品管理システム</a></h1>
     <div class="user">
       <p class="user_name">${ userInfo.getName() }さん、こんにちは</p>
-      <form class="logout_form" action="logout.jsp" method="get">
+      <form class="logout_form" action="logout" method="get">
         <button class="logout_btn" type="submit">
           <img src="images/ドアアイコン.png">ログアウト</button>
       </form>
@@ -27,15 +27,14 @@
   <div class="update">
     <div class="form_body">
       <div class="img_block">
-        <img src=${ info.getImg() } class="product_img"><br>
-        ${ info.getImg() }
+        <img src="images/${ info.getImagePath() }" class="product_img"><br>
       </div>
-      <form action="DetailServlet" method="get">
+      <form action="delete" method="get">
         <fieldset class="label-130 product_block">
-          <p class="error">エラーメッセージ</p>
+          <p class="error"><!-- エラーメッセージ --></p>
           <div>
             <label>商品ID</label>
-            <input type="text" name="loginId" value=${ info.getProductId() } readonly class="base-text">
+            <input type="text" name="id" value=${ info.getProductId() } readonly class="base-text">
           </div>
           <div>
             <label>商品名</label>
@@ -51,8 +50,7 @@
           </div>
           <div>
             <label>商品説明</label>
-            <textarea name="description" readonly class="base-text" style="background-color: rgb(209, 209, 209);">
-				${ info.getDescription() }
+            <textarea name="description" readonly class="base-text" style="background-color: rgb(209, 209, 209);">${ info.getDescription() }
             </textarea>
           </div>
         </fieldset>

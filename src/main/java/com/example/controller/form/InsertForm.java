@@ -3,6 +3,7 @@ package com.example.controller.form;
 import javax.validation.constraints.NotBlank;
 
 public class InsertForm {
+	private String id;
 	@NotBlank
 	private String productId;
 	@NotBlank
@@ -12,8 +13,14 @@ public class InsertForm {
 	@NotBlank
 	private String category;
 	private String description;
-	private String img;
-	
+	private String imagePath;
+
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getProductId() {
 		return productId;
 	}
@@ -44,11 +51,11 @@ public class InsertForm {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public String getImg() {
-		return img;
+	public String getImagePath() {
+		return imagePath;
 	}
-	public void setImg(String img) {
-		this.img = img;
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 	
 	

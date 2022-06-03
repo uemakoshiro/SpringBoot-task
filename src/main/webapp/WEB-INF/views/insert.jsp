@@ -14,10 +14,10 @@
 <body>
 
   <div class="header">
-    <h1 class="site_logo"><a href="MenuServlet">商品管理システム</a></h1>
+    <h1 class="site_logo"><a href="back">商品管理システム</a></h1>
     <div class="user">
       <p class="user_name">${ userInfo.getName() }さん、こんにちは</p>
-      <form class="logout_form" action="index" method="get">
+      <form class="logout_form" action="logout" method="get">
         <button class="logout_btn" type="submit">
           <img src="images/ドアアイコン.png"/>ログアウト</button>
       </form>
@@ -56,12 +56,9 @@
           <div class="select_block">
             <label class="required">カテゴリ</label>
             <form:select path="category" class="base-text">
-	            <!--<c:forEach var="category" items="${categoryList}">
-	              <option value=${ category.getId() }>${ category.getName() }</option>
-	            </c:forEach>-->
-	            <option value=1>a</option>
-	            <option value=2>b</option>
-	            <option value=3>c</option>
+	            
+	              <form:options items="${CategoryList}" itemLabel="name" itemValue="id" />
+	            
             </form:select>
           </div>
           <div>
@@ -70,8 +67,8 @@
           </div>
           <div>
             <label>画像</label>
-            <form:input type="file" path="img"/>
-            <span class="error">エラーメッセージ</span>
+            <form:input type="file" path="imagePath"/>
+            <span class="error"><!-- エラーメッセージ --></span>
           </div>
         </fieldset>
         <div class="btns">

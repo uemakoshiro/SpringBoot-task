@@ -9,7 +9,7 @@ public class Product {
 	private String categoryId;
 	private String name;
 	private String price;
-	private String img;
+	private String imagePath;
 	private String description;
 	private String createdAt;
 	private String updatedAt;
@@ -51,11 +51,11 @@ public class Product {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	public String getImg() {
-		return img;
+	public String getImagePath() {
+		return imagePath;
 	}
-	public void setImg(String img) {
-		this.img = img;
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 	public String getDescription() {
 		return description;

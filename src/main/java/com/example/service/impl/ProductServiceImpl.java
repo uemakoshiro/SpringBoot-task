@@ -21,12 +21,11 @@ public class ProductServiceImpl implements ProductService {
     
     public Product SelectId(String id) {
     	Product pd = productDao.SelectId(id);
-    	System.out.println("service"+pd.getName());
     	return pd;
     }
     
-    public ArrayList<Product> Search(String keyword){
-    	return productDao.Search(keyword);
+    public ArrayList<Product> Search(String keyword, String order){
+    	return productDao.Search(keyword,order);
     }
     
     public int Insert(Product pd) {
@@ -35,6 +34,10 @@ public class ProductServiceImpl implements ProductService {
     
     public int Update(Product pd) {
     	return productDao.Update(pd);
+    }
+    
+    public int Delete(String id) {
+    	return productDao.Delete(id);
     }
     
 }

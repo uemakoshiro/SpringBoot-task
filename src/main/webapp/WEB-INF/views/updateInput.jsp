@@ -12,10 +12,10 @@
 </head>
 <body>
   <div class="header">
-    <h1 class="site_logo"><a href="MenuServlet">商品管理システム</a></h1>
+    <h1 class="site_logo"><a href="back">商品管理システム</a></h1>
     <div class="user">
       <p class="user_name">${ userInfo.getName() }さん、こんにちは</p>
-      <form class="logout_form" action="logout.jsp" method="get">
+      <form class="logout_form" action="logout" method="get">
         <button class="logout_btn" type="submit">
           <img src="images/ドアアイコン.png">ログアウト</button>
       </form>
@@ -32,26 +32,24 @@
         <fieldset class="label-130">
           <div>
             <label>商品ID</label>
-            <input type="text" path="productId" value=${ data.getProductId() } class="base-text">
+            <form:input type="text" path="productId" class="base-text"/>
             <span class="error"><form:errors path="productId" cssStyle="color: red"/></span>
           </div>
           <div>
             <label>商品名</label>
-            <input type="text" path="productName" value=${ data.getName() } class="base-text">
+            <form:input type="text" path="productName" class="base-text"/>
             <span class="error"><form:errors path="productName" cssStyle="color: red"/></span>
           </div>
           <div>
             <label>単価</label>
-            <form:input type="text" path="price" value="a" class="base-text"/>
+            <form:input type="text" path="price" class="base-text"/>
             <span class="error"><form:errors path="price" cssStyle="color: red"/></span>
           </div>
           <div>
             <label>カテゴリ</label> <form:select path="category" class="base-text">
-              <option value="1" <c:if test="${ data.getCategoryId() eq '1' }">selected</c:if>>筆記具</option>
-              <option value="2" <c:if test="${ data.getCategoryId() eq '2' }">selected</c:if>>オフィス機器</option>
-              <option value="3" <c:if test="${ data.getCategoryId() eq '3' }">selected</c:if>>事務消耗品</option>
-              <option value="4" <c:if test="${ data.getCategoryId() eq '4' }">selected</c:if>>紙製品</option>
-              <option value="5" <c:if test="${ data.getCategoryId() eq '5' }">selected</c:if>>雑貨</option>
+              
+              <form:options items="${CategoryList}" itemLabel="name" itemValue="id"/>
+	            
             </form:select>
           </div>
           <div>
@@ -60,8 +58,8 @@
           </div>
           <div>
             <label>画像</label>
-            <form:input type="file" path="img"/>
-            <span class="error">エラーメッセージ</span>
+            <form:input type="file" path="imagePath"/>
+            <span class="error"><!-- エラーメッセージ --></span>
           </div>
         </fieldset>
           <div class="btns">
